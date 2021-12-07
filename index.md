@@ -30,35 +30,41 @@ Is the result of a Data Premise validation on a Data Node.
 
 ### Implementing a test
 
-1. Importing and instantiating PP
+- Importing and instantiating PP
+
 ```python
 from pipeline_penguin import PipelinePenguin
 pp = PipelinePenguin()
 ```
 
-2. Defining the default connector
+- Defining the default connector
+
 ```python
 bq_connector = ConnectorSQLBigQuery('/config/service_account.json')
 pp.connectors.define_default(bq_connector)
 ```
 
-3. Creating a Data Node
+- Creating a Data Node
+
 ```python
 node = pp.nodes.create_node('Node Name', DataNodeBigQuery, project_id='example', dataset_id='example', table_id='example')
 pp.nodes.list_nodes()
 ```
 
-4. Creating a Data Premise
+- Creating a Data Premise
+
 ```python
 node.insert_premise('Premise Name', DataPremiseSQLCheckIsNull, "Column Name")
 ```
 
-5. Executing a validation
+- Executing a validation
+
 ```python
 pp.nodes.run_premises()
 ```
 
-6. Checking Logs
+- Checking Logs
+
 ```python
 log_formatter = OutputFormatterLog()
 outputs.format_outputs(log_formatter)
@@ -66,7 +72,7 @@ outputs.format_outputs(log_formatter)
 
 ### Implementing a custom Data Premise
 
-1. Implementing a new DataPremise class
+- Implementing a new DataPremise class
 
 ```python
 
@@ -118,7 +124,8 @@ class CheckBanana(DataPremiseSQL):
         return output
 ```
 
-2. Testing a DataNode with a custom Data Premise
+- Testing a DataNode with a custom Data Premise
+
 ```python
 from pipeline_penguin import PipelinePenguin
 import CheckBanana
