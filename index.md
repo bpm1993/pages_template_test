@@ -64,7 +64,10 @@ log_formatter = OutputFormatterLog()
 outputs.format_outputs(log_formatter)
 ```
 
-7. Implementing a custom Data Premise (advanced use case)
+### Implementing a custom Data Premise
+
+1. Implementing a new DataPremise class
+
 ```python
 
 from pipeline_penguin.core.data_premise.sql import DataPremiseSQL
@@ -115,7 +118,7 @@ class CheckBanana(DataPremiseSQL):
         return output
 ```
 
-8. Testing a DataNode with a custom Data Premise
+2. Testing a DataNode with a custom Data Premise
 ```python
 from pipeline_penguin import PipelinePenguin
 import CheckBanana
