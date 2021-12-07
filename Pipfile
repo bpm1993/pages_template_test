@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pandas = "==1.2.3"
+pandas-gbq = "==0.14.1"
+
+[dev-packages]
+pytest = "==6.2.2"
+pytest-cov = "==2.12.1"
+black = "==20.8b1"
+pdoc = "==7.2.0"
+build = "==0.5.1"
+setuptools = "==57.0.0"
+wheel = "==0.36.2"
+
+[requires]
+python_version = "3.9"
+
+[scripts]
+test = "python -m pytest"
+format = "black . --exclude=.venv*"
+format-check = "black . --exclude=.venv* --check"
+build-docs = "pdoc ./pipeline_penguin -o ./web/docs"
+docs = "pdoc ./pipeline_penguin"
+build = "python setup.py bdist_wheel"
