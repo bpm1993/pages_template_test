@@ -64,7 +64,7 @@ log_formatter = OutputFormatterLog()
 outputs.format_outputs(log_formatter)
 ```
 
-7. Implementing a custom Data Premise (advanced use case)
+7. Implementing a custom Data Premise
 ```python
 from pipeline_penguin.core.data_premise.sql import DataPremiseSQL
 from pipeline_penguin.core.premise_output.premise_output import PremiseOutput
